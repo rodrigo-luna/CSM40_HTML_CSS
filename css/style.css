@@ -2,17 +2,31 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+:root {
+    --cor-body: white;
+    --cor-highlight-1: darkslategray;
+    --cor-highlight-2: lightblue;
+    --cor-highlight-3: rgb(0, 104, 104);
+    --cor-font-1: rgb(2, 35, 35);
+    --cor-font-2: white;
+}
+
 * {
     max-height: 99999999999px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-image: url("../img/p6.webp");
     background-repeat: repeat;
     font-family: "Ubuntu", 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--cor-font-1);
 }
 
-header, main, footer {
+header, main {
     max-width: 1200px;
     margin-inline: auto;
     padding: 1rem .25rem;
@@ -20,31 +34,203 @@ header, main, footer {
 
 h1 {
     text-align: center;
-    margin: 2rem 0 0;
+    margin: 4rem 0;
+    font-size: 3rem;
+}
+
+h2 {
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+
+p {
+    margin: .5rem 0 0;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
     text-align: center;
-    color: white;
-    background-color: darkslategray;
+    color: var(--cor-font-2);
+    background-color: var(--cor-highlight-1);
     padding-block: 0.25rem;
 }
 
 footer a, footer a:visited {
-    color: white;
+    color: var(--cor-font-2);
     background-color: transparent;
 }
 
 footer a:hover, footer a:active {
-    color: lightblue;
+    color: var(--cor-highlight-2);
     background-color: transparent;
 }
 
 
 /* ---------- NAVEGAÇÃO ---------- */
 
+
 nav {
+    display: flex;
+    height: 2.5rem;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    height: 100%;
+    width: 100%;
+}
+
+nav li:nth-child(1){
+    margin-right: auto;
+}
+
+nav li a, nav li a:visited {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 .5rem;
+    height: 100%;
+    border-radius: .75rem;
+    border: 1px solid var(--cor-highlight-1);
+    background-color: var(--cor-highlight-1);
+    color: var(--cor-font-2);
+    text-decoration: none;
+    transition: .3s;
+}
+
+nav li a:hover, nav li a:active {
+    border: 1px solid var(--cor-font-1);
+    background-color: var(--cor-highlight-2);
+    color: var(--cor-font-1)
+}
+
+.burger {
+    display: none;
+}
+
+@media screen and (max-width: 910px) {
+    .burger {
+        display: inline-block;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        height: 50px;
+    }
+
+    .burger img {
+        height: 100%;
+    }
+
+    nav ul {
+        height: 100vh;
+        width: fit-content;
+        max-width: 80vw;
+        padding: 5rem;
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        transform: translateX(-100%);
+
+        /* background-color: lightblue; */
+        backdrop-filter: blur(.25rem);
+        box-shadow: 0 1rem 1rem lightgray;
+        flex-direction: column;
+    }
+
+    nav:is(:focus, :focus-within) ul {
+        transform: translateX(0);
+        transition: transform .3s ease-out;
+    }
+
+    nav li a {
+        padding: .5rem;
+        border-radius: 1rem;
+    }
+
+    nav li:nth-child(1){
+        margin-right: 0;
+    }
+}
+
+/* ---------- MAIN ---------- */
+
+section {
+    padding-bottom: 5rem;
+}
+
+figure {
+    margin-block: 3rem;
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 1rem;
+}
+
+#pagina-principal .sessao-2 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2rem;
+}
+
+#pagina-principal .sessao-2 img {
+    margin: 0 auto;
+    border: 3px solid greenyellow;
+}
+
+#pagina-principal .sessao-3 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: 2rem;
+}
+
+#pagina-principal .sessao-3 img {
+    margin: 0 auto;
+    border: 3px solid lightblue;
+}
+
+#pagina-principal .sessao-4 {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.sessao-4 .bloco {
+    flex: 0 0 20rem;
+    min-height: 20rem;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+
+    #pagina-principal .sessao-2 {
+        grid-auto-flow: column;
+        grid-template-rows: 1fr 2fr;
+        grid-template-columns: none;
+    }
+
+    #pagina-principal .sessao-3 {
+        grid-auto-flow: column;
+        grid-template-rows: 2fr 1fr;
+        grid-template-columns: none;
+    }
+}
+
+
+
+/* ---------- NAV ANTIGO ---------- */
+
+/* nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,67 +268,4 @@ nav li a, nav li a:visited, nav li a:hover {
 nav li:has(a:active) {
     box-shadow: 0 .1rem .25rem .1rem lightgray inset;
     font-size: .99rem;
-}
-
-
-/* ---------- MAIN ---------- */
-
-section {
-    padding-bottom: 2rem;
-}
-
-figure {
-    margin-block: 3rem;
-    text-align: center;
-}
-
-figcaption {
-    margin-top: 1rem;
-}
-
-#pagina-principal .sessao-2 {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
-    gap: 2rem;
-}
-
-#pagina-principal .sessao-2 img {
-    margin: 0 auto;
-    border: 3px solid greenyellow;
-}
-
-#pagina-principal .sessao-3 {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
-    gap: 2rem;
-}
-
-#pagina-principal .sessao-3 img {
-    margin: 0 auto;
-    border: 3px solid lightblue;
-}
-
-.burger {
-    display: none;
-}
-
-@media screen and (max-width: 800px) {
-    .burger {
-        display: inline-block;
-        height: 50px;
-    }
-
-    #pagina-principal .sessao-2 {
-        grid-auto-flow: column;
-        grid-template-rows: 1fr 2fr;
-        grid-template-columns: none;
-    }
-
-    #pagina-principal .sessao-3 {
-        grid-auto-flow: column;
-        grid-template-rows: 2fr 1fr;
-        grid-template-columns: none;
-    }
-}
+} */
