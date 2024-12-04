@@ -24,6 +24,7 @@ body {
     font-family: "Ubuntu", 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.5;
     color: var(--cor-font-1);
+    /* scroll-behavior: smooth; */
 }
 
 header, main {
@@ -34,7 +35,7 @@ header, main {
 
 h1 {
     text-align: center;
-    margin: 4rem 0;
+    margin: 8rem 0;
     font-size: 3rem;
 }
 
@@ -211,6 +212,12 @@ figcaption {
     justify-content: center;
 }
 
+em {
+    color: var(--cor-highlight-1);
+    font-weight: bold;
+    font-style: normal;
+}
+
 @media screen and (max-width: 800px) {
 
     #pagina-principal .sessao-2 {
@@ -226,7 +233,28 @@ figcaption {
     }
 }
 
+/* ---------- ANIMAÇÕES ---------- */
 
+h1 {
+    animation: descer 1.5s ease-out;
+}
+
+#pagina-principal section {
+    animation: descer;
+    animation-timeline: view();
+    animation-range: 0% 30%;
+}
+
+@keyframes descer {
+    0% {
+        transform: translateY(-8rem);
+        opacity: 0%;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
 
 /* ---------- NAV ANTIGO ---------- */
 
