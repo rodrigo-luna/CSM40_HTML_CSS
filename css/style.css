@@ -1,6 +1,12 @@
 /* ---------- GERAL ---------- */
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* Fontes gerais */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'); */
+
+/* Fontes para h1 */
+/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap'); */
 
 :root {
     --cor-body: white;
@@ -9,6 +15,7 @@
     --cor-highlight-3: rgb(0, 104, 104);
     --cor-font-1: rgb(2, 35, 35);
     --cor-font-2: white;
+    --cor-header: rgb(2, 35, 35);
 }
 
 * {
@@ -24,9 +31,10 @@ html {
 body {
     background-image: url("../img/p6.webp");
     background-repeat: repeat;
-    font-family: "Ubuntu", 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Poppins", 'Ubuntu', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.5;
     color: var(--cor-font-1);
+    word-break: break-word;
 }
 
 header, main {
@@ -40,12 +48,16 @@ header {
 }
 
 h1 {
+    /* font-family: 'Bebas Neue', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    color: var(--cor-header);
     text-align: center;
-    margin: 8rem 0;
+    margin: 6rem 0;
     font-size: 3rem;
+    animation: descer 1.5s ease-out;
 }
 
 h2 {
+    color: var(--cor-header);
     margin: 1rem 0;
     font-size: 2rem;
 }
@@ -54,7 +66,34 @@ p {
     margin: .5rem 0 0;
 }
 
+li {
+    list-style: none;
+}
+
+section {
+    padding-bottom: 5rem;
+}
+
+figure {
+    margin-block: 3rem;
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 1rem;
+}
+
+a, a:visited {
+    color: var(--cor-highlight-1);
+    font-weight: bold;
+}
+
+a:active, a:hover {
+    color: var(--cor-highlight-3);
+}
+
 /* ---------- FOOTER ---------- */
+
 footer {
     text-align: center;
     color: var(--cor-font-2);
@@ -75,7 +114,6 @@ footer a:hover, footer a:active {
 
 /* ---------- NAVEGAÇÃO ---------- */
 
-
 nav {
     display: flex;
     height: 2.5rem;
@@ -88,10 +126,6 @@ nav ul {
     list-style-type: none;
     height: 100%;
     width: 100%;
-}
-
-nav li:nth-child(1){
-    margin-right: auto;
 }
 
 nav li a, nav li a:visited {
@@ -107,6 +141,7 @@ nav li a, nav li a:visited {
     background-color: var(--cor-highlight-1);
     color: var(--cor-font-2);
     text-decoration: none;
+    font-weight: normal;
     transition: .3s;
 }
 
@@ -114,6 +149,10 @@ nav li a:hover, nav li a:active {
     border: 1px solid var(--cor-font-1);
     background-color: var(--cor-highlight-2);
     color: var(--cor-font-1)
+}
+
+nav li:nth-child(1) {
+    margin-right: auto;
 }
 
 .burger {
@@ -127,6 +166,7 @@ nav li a:hover, nav li a:active {
         top: 1rem;
         left: 1rem;
         height: 50px;
+        z-index: 10;
     }
 
     .burger img {
@@ -143,14 +183,13 @@ nav li a:hover, nav li a:active {
         top: 0;
         transform: translateX(-110%);
 
-        /* background-color: lightblue; */
         backdrop-filter: blur(.25rem);
         box-shadow: 0 1rem 1rem lightgray;
         flex-direction: column;
     }
 
     nav:is(:focus, :focus-within) ul {
-        transform: translateX(0);
+        transform: translateX(-10%);
         transition: transform .3s ease-out;
     }
 
@@ -166,17 +205,10 @@ nav li a:hover, nav li a:active {
 
 /* ---------- MAIN ---------- */
 
-section {
-    padding-bottom: 5rem;
-}
-
-figure {
-    margin-block: 3rem;
-    text-align: center;
-}
-
-figcaption {
-    margin-top: 1rem;
+#pagina-principal section {
+    animation: descer;
+    animation-timeline: view();
+    animation-range: 0% 30%;
 }
 
 #pagina-principal .sessao-2 {
@@ -188,7 +220,7 @@ figcaption {
 
 #pagina-principal .sessao-2 img {
     margin: 0 auto;
-    border: 3px solid greenyellow;
+    /* border: 3px solid greenyellow; */
 }
 
 #pagina-principal .sessao-3 {
@@ -200,7 +232,7 @@ figcaption {
 
 #pagina-principal .sessao-3 img {
     margin: 0 auto;
-    border: 3px solid lightblue;
+    /* border: 3px solid lightblue; */
 }
 
 #pagina-principal .sessao-4 {
@@ -219,21 +251,6 @@ figcaption {
     justify-content: center;
 }
 
-em {
-    color: var(--cor-highlight-1);
-    font-weight: bold;
-    font-style: normal;
-}
-
-.baby-shark:hover {
-    color: transparent;
-    background: linear-gradient(90deg, red, orange, yellow, green, blue, purple, red, orange, yellow, green, blue, purple);
-    background-clip: text;
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    animation: babyshark 1s linear infinite;
-}
-
 @media screen and (max-width: 800px) {
 
     #pagina-principal .sessao-2 {
@@ -249,21 +266,57 @@ em {
     }
 }
 
-/* ---------- ANIMAÇÕES ---------- */
+/* ---------- SOBRE NÓS ---------- */
 
-h1 {
-    animation: descer 1.5s ease-out;
+em {
+    color: var(--cor-highlight-1);
+    font-weight: bold;
+    font-style: normal;
 }
 
-#pagina-principal section {
+.baby-shark:hover {
+    color: transparent;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, purple, red, orange, yellow, green, blue, purple);
+    background-clip: text;
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    animation: babyshark 1s linear infinite;
+}
+
+#pagina-sobre .sessao-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+#pagina-sobre .sessao-1 .card {
+    width: min(100%, 35rem);
+    padding-block: 2rem 3rem;
+    padding-inline: min(2rem, 5vw);
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    box-shadow: 0rem 1rem 1rem .5rem lightgray;
+    background-color: var(--cor-body);
+
     animation: descer;
     animation-timeline: view();
     animation-range: 0% 30%;
 }
 
+#pagina-sobre .sessao-1 .card:nth-child(odd) {
+    margin-right: auto;
+}
+
+#pagina-sobre .sessao-1 .card:nth-child(even) {
+    margin-left: auto;
+}
+
+
+/* ---------- ANIMAÇÕES ---------- */
+
 @keyframes descer {
     0% {
-        transform: translateY(-8rem);
+        transform: translateY(-6rem);
         opacity: 0%;
     }
     100% {
@@ -280,45 +333,3 @@ h1 {
         background-position: 100% 0%;
     }
 }
-
-/* ---------- NAV ANTIGO ---------- */
-
-/* nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav > a img {
-    height: 3rem;
-}
-
-nav ul {
-    display: flex;
-    gap: 1rem;
-}
-
-nav li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 .1rem .25rem .1rem lightgray;
-    border-radius: .5rem;
-    background-color: rgb(250, 250, 240);
-}
-
-nav li a, nav li a:visited, nav li a:hover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-    padding: .66rem .5rem;
-    height: 60%;
-}
-
-nav li:has(a:active) {
-    box-shadow: 0 .1rem .25rem .1rem lightgray inset;
-    font-size: .99rem;
-} */
