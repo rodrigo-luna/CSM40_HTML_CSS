@@ -205,6 +205,8 @@ nav li:nth-child(1) {
 
 /* ---------- MAIN ---------- */
 
+#pagina-social section,
+#pagina-atualmente section,
 #pagina-principal section {
     animation: descer;
     animation-timeline: view();
