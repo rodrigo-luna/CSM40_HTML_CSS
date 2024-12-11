@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
-    <title>Sobre o projeto - O uso de telas na infância</title>
+    <title>Sobre o projeto | BabyShark</title>
 </head>
 <body>
     <header>
@@ -26,7 +26,9 @@
         <section class="sessao-1">
             <div class="card">
                 <h2>Nosso grupo</h2>
-                <p>Nós somos o grupo <em class="baby-shark">BabyShark</em>, formado por <em>Abner Palhano</em>, <em>Douglas Mendes</em>, e <em>Rodrigo Luna</em>. Somos discentes do curso de <em>Bachalerado em Sistemas de Informação</em> da <em>Universidade Tecnológica Federal do Paraná</em>.</p>    
+                <p>Nós somos o grupo <input type="button" value="BabyShark" class="baby-shark" onclick="play()">, formado por <em>Abner Palhano</em>, <em>Douglas Mendes</em>, e <em>Rodrigo Luna</em>. Somos discentes do curso de <em>Bachalerado em Sistemas de Informação</em> da <em>Universidade Tecnológica Federal do Paraná</em>.</p>    
+                
+                <audio id="audio" src="aud/babyshark.mp3"></audio>
             </div>
             <div class="card">
                 <h2>Disciplina</h2>
@@ -35,7 +37,7 @@
             <div class="card">
                 <h2>Licença de uso</h2>
                 <p xmlns:cc="http://creativecommons.org/ns#" >Todo o conteúdo deste website está sob a licença <a href="https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""></a></p>
-                <p>Você e qualquer outra pessoa pode copiar e redistribuir este conteúdo, assim como editar ou usar como base para outras produções, desde que dê os devidos créditos. Você não pode, porém, usar este conteúdo para fins comerciais.</p>
+                <p>Você e qualquer outra pessoa pode copiar e redistribuir este conteúdo, assim como editar ou usar como base para outras produções, desde que dê os devidos créditos, e não utilize este conteúdo para fins comerciais.</p>
             </div>
             <div class="card">
                 <h2>Referências</h2>
@@ -53,5 +55,11 @@
         <p>Abner Palhano | Douglas Mendes | Rodrigo Luna</p>
         <p xmlns:cc="http://creativecommons.org/ns#" >Este trabalho está sob a licença Creative Commons <a href="https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""></a></p>
     </footer>
+    <script>
+        function play() {
+          var audio = document.getElementById("audio");
+          audio.play();
+        }
+    </script>
 </body>
 </html>

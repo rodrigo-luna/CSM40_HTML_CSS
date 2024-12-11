@@ -58,7 +58,7 @@ h1 {
 
 h2 {
     color: var(--cor-header);
-    margin: 1rem 0;
+    margin: 0 0 1rem 0;
     font-size: 2rem;
 }
 
@@ -159,7 +159,7 @@ nav li:nth-child(1) {
     display: none;
 }
 
-@media screen and (max-width: 885px) {
+@media screen and (max-width: 950px) {
     .burger {
         display: inline-block;
         position: fixed;
@@ -177,7 +177,7 @@ nav li:nth-child(1) {
         height: 100vh;
         width: fit-content;
         max-width: 80vw;
-        padding: 5rem;
+        padding: 5rem 3rem;
         z-index: 100;
         position: fixed;
         top: 0;
@@ -194,7 +194,7 @@ nav li:nth-child(1) {
     }
 
     nav li a {
-        padding: .5rem;
+        padding: .5rem 1rem;
         border-radius: 1rem;
     }
 
@@ -218,11 +218,6 @@ nav li:nth-child(1) {
     gap: 2rem;
 }
 
-#pagina-principal .sessao-2 img {
-    margin: 0 auto;
-    /* border: 3px solid greenyellow; */
-}
-
 #pagina-principal .sessao-3 {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -230,9 +225,13 @@ nav li:nth-child(1) {
     gap: 2rem;
 }
 
+#pagina-principal .sessao-2 img,
 #pagina-principal .sessao-3 img {
     margin: 0 auto;
-    /* border: 3px solid lightblue; */
+    height: 100%;
+    max-width: 30vw;
+    border-radius: 1rem;
+    object-fit: cover;
 }
 
 #pagina-principal .sessao-4 {
@@ -253,17 +252,20 @@ nav li:nth-child(1) {
 
 @media screen and (max-width: 800px) {
 
-    #pagina-principal .sessao-2 {
+    #pagina-principal .sessao-2,
+    #pagina-principal .sessao-3 {
         grid-auto-flow: column;
-        grid-template-rows: 1fr 2fr;
+        grid-template-rows: 1fr 1fr;
         grid-template-columns: none;
     }
 
-    #pagina-principal .sessao-3 {
-        grid-auto-flow: column;
-        grid-template-rows: 2fr 1fr;
-        grid-template-columns: none;
+    #pagina-principal .sessao-2 img,
+    #pagina-principal .sessao-3 img {
+        height: 100%;
+        max-height: 30vh;
+        max-width: 80vw;
     }
+
 }
 
 /* ---------- SOBRE NÓS ---------- */
@@ -272,6 +274,18 @@ em {
     color: var(--cor-highlight-1);
     font-weight: bold;
     font-style: normal;
+}
+
+.baby-shark {
+    display: inline-block;
+    color: var(--cor-highlight-1);
+    font-size: 1rem;
+    font-weight: bold;
+    font-style: normal;
+    font-family: inherit;
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
 }
 
 .baby-shark:hover {
@@ -286,7 +300,7 @@ em {
 #pagina-sobre .sessao-1 {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 5rem;
 }
 
 #pagina-sobre .sessao-1 .card {
