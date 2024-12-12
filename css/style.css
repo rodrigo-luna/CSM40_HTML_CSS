@@ -6,16 +6,17 @@
 
 /* Fontes para h1 */
 /* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
 :root {
-    --cor-body: white;
+    --cor-body: rgb(240, 240, 240);
     --cor-highlight-1: darkslategray;
     --cor-highlight-2: lightblue;
     --cor-highlight-3: rgb(0, 104, 104);
     --cor-font-1: rgb(2, 35, 35);
     --cor-font-2: white;
     --cor-header: rgb(2, 35, 35);
+    --cor-header-2: white;
 }
 
 * {
@@ -40,19 +41,26 @@ body {
 header, main {
     max-width: 1200px;
     margin-inline: auto;
-    padding: 1rem 5vw;
+    padding: 2rem 5vw 5rem 5vw;
 }
 
 header {
-    /* background-color: lightblue; */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url("../img/smartphone.avif");
+    background-size: cover;
+    background-position: 40% top;
+    margin-bottom: 3rem;
+    max-width: 1600px;
 }
 
 h1 {
-    /* font-family: 'Bebas Neue', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-    color: var(--cor-header);
+    font-family: 'Paytone One', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--cor-header-2);
     text-align: center;
     margin: 6rem 0;
     font-size: 3rem;
+    font-weight: normal;
+    text-shadow: 0 0 .5rem black;
+    
     animation: descer 1.5s ease-out;
 }
 
@@ -118,6 +126,7 @@ nav {
     display: flex;
     height: 2.5rem;
     align-items: center;
+    justify-content: center;
 }
 
 nav ul {
@@ -126,6 +135,7 @@ nav ul {
     list-style-type: none;
     height: 100%;
     width: 100%;
+    max-width: 1200px;
 }
 
 nav li a, nav li a:visited {
@@ -136,9 +146,9 @@ nav li a, nav li a:visited {
 
     padding: 0 .5rem;
     height: 100%;
-    border-radius: .75rem;
-    border: 1px solid var(--cor-highlight-1);
-    background-color: var(--cor-highlight-1);
+    /* border-radius: 2rem; */
+    border: 2px solid var(--cor-font-2);
+    background-color: rgba(0, 0, 0, 0.5);
     color: var(--cor-font-2);
     text-decoration: none;
     font-weight: normal;
@@ -146,9 +156,9 @@ nav li a, nav li a:visited {
 }
 
 nav li a:hover, nav li a:active {
-    border: 1px solid var(--cor-font-1);
+    border: 2px solid var(--cor-font-1);
     background-color: var(--cor-highlight-2);
-    color: var(--cor-font-1)
+    color: var(--cor-font-1);
 }
 
 nav li:nth-child(1) {
@@ -159,7 +169,7 @@ nav li:nth-child(1) {
     display: none;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 968px) {
     .burger {
         display: inline-block;
         position: fixed;
@@ -171,31 +181,36 @@ nav li:nth-child(1) {
 
     .burger img {
         height: 100%;
+        background-color: var(--cor-body);
+        border: 1px solid black;
+        border-radius: 50%;
+        padding: .5rem;
     }
 
     nav ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        transform: translateX(-100%);
+
         height: 100vh;
         width: fit-content;
         max-width: 80vw;
         padding: 5rem 3rem;
-        z-index: 100;
-        position: fixed;
-        top: 0;
-        transform: translateX(-110%);
-
-        backdrop-filter: blur(.25rem);
-        box-shadow: 0 1rem 1rem lightgray;
+        
+        background-color: var(--cor-highlight-1);
         flex-direction: column;
     }
 
     nav:is(:focus, :focus-within) ul {
-        transform: translateX(-10%);
+        transform: translateX(0);
         transition: transform .3s ease-out;
     }
 
     nav li a {
         padding: .5rem 1rem;
-        border-radius: 1rem;
+        /* border-radius: 2rem; */
     }
 
     nav li:nth-child(1){
@@ -205,9 +220,9 @@ nav li:nth-child(1) {
 
 /* ---------- MAIN ---------- */
 
-#pagina-social section,
-#pagina-atualmente section,
-#pagina-principal section {
+#pagina-social section:not(:first-child),
+#pagina-atualmente section:not(:first-child),
+#pagina-principal section:not(:first-child) {
     animation: descer;
     animation-timeline: view();
     animation-range: 0% 30%;
@@ -217,26 +232,32 @@ nav li:nth-child(1) {
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 #pagina-principal .sessao-3 {
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
+}
+
+.sessao-2 .container-imagem, .sessao-3 .container-imagem {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #pagina-principal .sessao-2 img,
 #pagina-principal .sessao-3 img {
-    margin: 0 auto;
     height: 100%;
-    max-width: 30vw;
-    border-radius: 1rem;
+    width: 100%;
+    border-radius: 2rem;
     object-fit: cover;
 }
 
-#pagina-principal .sessao-4 {
+/* #pagina-principal .sessao-4 {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
@@ -250,22 +271,20 @@ nav li:nth-child(1) {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 @media screen and (max-width: 800px) {
 
-    #pagina-principal .sessao-2,
-    #pagina-principal .sessao-3 {
+    #pagina-principal .sessao-2 {
         grid-auto-flow: column;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr auto;
         grid-template-columns: none;
     }
 
-    #pagina-principal .sessao-2 img,
-    #pagina-principal .sessao-3 img {
-        height: 100%;
-        max-height: 30vh;
-        max-width: 80vw;
+    #pagina-principal .sessao-3 {
+        grid-auto-flow: column;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: none;
     }
 
 }
@@ -290,7 +309,7 @@ em {
     text-decoration: underline;
 }
 
-.baby-shark:hover {
+.baby-shark:hover, .baby-shark:active {
     color: transparent;
     background: linear-gradient(90deg, red, orange, yellow, green, blue, purple, red, orange, yellow, green, blue, purple);
     background-clip: text;
@@ -302,7 +321,7 @@ em {
 #pagina-sobre .sessao-1 {
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 4rem;
 }
 
 #pagina-sobre .sessao-1 .card {
@@ -313,7 +332,9 @@ em {
     border-radius: 1rem;
     box-shadow: 0rem 1rem 1rem .5rem lightgray;
     background-color: var(--cor-body);
+}
 
+#pagina-sobre .sessao-1 .card:not(:first-child) {
     animation: descer;
     animation-timeline: view();
     animation-range: 0% 30%;
