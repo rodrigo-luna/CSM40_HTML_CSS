@@ -288,14 +288,13 @@ nav li:nth-child(1) {
 #pagina-principal .sessao-3 img,#pagina-principal .sessao-4 img,
 #pagina-principal .sessao-5 img {
     margin: 0 auto;
-#pagina-principal .sessao-3 img {
     height: 100%;
     width: 100%;
     border-radius: 2rem;
     object-fit: cover;
 }
 
-#pagina-principal .sessao-6 {
+
 /* #pagina-principal .sessao-4 {
     display: flex;
     gap: 2rem;
@@ -317,7 +316,6 @@ nav li:nth-child(1) {
     #pagina-principal .sessao-2,
     #pagina-principal .sessao-3, #pagina-principal .sessao-4,
     #pagina-principal .sessao-5 {
-    #pagina-principal .sessao-2 {
         grid-auto-flow: column;
         grid-template-rows: 1fr auto;
         grid-template-columns: none;
@@ -571,57 +569,3 @@ a:focus, button:focus {
     outline: 2px solid #ff6347;
 }
 
-
-
-/* Estilos gerais do carrossel */
-.carousel {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-}
-
-.carousel-slide {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
-    padding: 20px;
-    text-align: center;
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    margin: 10px;
-}
-
-.carousel-slide p {
-    font-size: 1.2em;
-    color: #333;
-}
-
-/* Estilo do contêiner */
-.carousel-container {
-    width: 80%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-/* Botões de navegação */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 2em;
-    border: none;
-    z-index: 10;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
