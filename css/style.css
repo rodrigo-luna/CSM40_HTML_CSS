@@ -35,7 +35,6 @@ body {
     font-family: "Poppins", 'Ubuntu', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.5;
     color: var(--cor-font-1);
-    word-break: break-word;
 }
 
 header, main {
@@ -224,8 +223,6 @@ nav li:nth-child(1) {
 #pagina-atualmente section:not(:first-child),
 #pagina-principal section:not(:first-child) {
     animation: descer;
-    animation-timeline: view();
-    animation-range: 0% 30%;
 }
 
 #pagina-principal .sessao-2 {
@@ -360,9 +357,7 @@ em {
 .baby-shark:hover, .baby-shark:active {
     color: transparent;
     background: linear-gradient(90deg, red, orange, yellow, green, blue, purple, red, orange, yellow, green, blue, purple);
-    background-clip: text;
     background-size: 200% 200%;
-    -webkit-background-clip: text;
     animation: babyshark 1s linear infinite;
 }
 
@@ -384,8 +379,6 @@ em {
 
 #pagina-sobre .sessao-1 .card:not(:first-child) {
     animation: descer;
-    animation-timeline: view();
-    animation-range: 0% 30%;
 }
 
 #pagina-sobre .sessao-1 .card:nth-child(odd) {
