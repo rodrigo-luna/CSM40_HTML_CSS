@@ -407,7 +407,7 @@ em {
 
 
 /* ---------- Social ---------- */
-iframe {
+#pagina-social iframe {
     display: block;
     margin: 2rem auto; /* Centraliza o vídeo horizontalmente */
     border-radius: 1rem; /* Bordas arredondadas */
@@ -417,11 +417,11 @@ iframe {
     transition: transform 0.3s ease; /* Adiciona animação para quando o usuário passar o mouse sobre o player */
 }
 
-iframe:hover {
+#pagina-social iframe:hover {
     transform: scale(1.05); /* Zoom suave ao passar o mouse sobre o vídeo */
 }
 
-main:not(#pagina-principal, #pagina-sobre) section {
+#pagina-social main:not(#pagina-principal, #pagina-sobre) section {
     background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 1rem; 
     padding: 2rem;
@@ -429,40 +429,40 @@ main:not(#pagina-principal, #pagina-sobre) section {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
 
-h2 {
+#pagina-social h2 {
     color: var(--cor-highlight-1);
     margin-bottom: 1rem;
     font-size: 2rem;
     font-weight: 600;
 }
 
-p {
+#pagina-social p {
     color: var(--cor-font-1);
     line-height: 1.6;
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
 }
 
-figure {
+#pagina-social figure {
     margin: 2rem 0;
     text-align: center;
     display: block;
 }
 
-figcaption {
+#pagina-social figcaption {
     font-style: italic;
     font-size: 0.9rem;
     color: var(--cor-font-2);
 }
 
 @media screen and (max-width: 800px) {
-    iframe {
+    #pagina-social iframe {
         width: 100%;
         max-width: 90%; 
         height: 200px; 
     }
 
-    section {
+    #pagina-social section {
         padding: 1.5rem;
     }
 }
@@ -471,7 +471,7 @@ figcaption {
 /* ---------- Atualmente ---------- */
 
 /* Animação de fade-in para os títulos */
-h2 {
+#pagina-atualmente h2 {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s forwards;
@@ -486,7 +486,7 @@ h2 {
 
 
 /* Vídeo embutido */
-.video-container {
+#pagina-atualmente .video-container {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
@@ -495,7 +495,7 @@ h2 {
     background: #000;
 }
 
-.video-container iframe {
+#pagina-atualmente .video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -503,23 +503,23 @@ h2 {
     height: 100%;
 }
 
-.statistics {
+#pagina-atualmente .statistics {
     display: flex;
     justify-content: space-around;
     margin-top: 50px;
 }
 
-.stat {
+#pagina-atualmente .stat {
     text-align: center;
 }
 
-.stat h3 {
+#pagina-atualmente .stat h3 {
     font-size: 3em;
     color: #ff6347;
     margin: 0;
 }
 
-.stat p {
+#pagina-atualmente .stat p {
     font-size: 1.2em;
 }
 
