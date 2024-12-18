@@ -209,7 +209,11 @@ nav li:nth-child(1) {
 
     nav li a {
         padding: .5rem 1rem;
-        /* border-radius: 2rem; */
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav li a:hover {
+        transform: scale(1.1);
     }
 
     nav li:nth-child(1){
@@ -223,6 +227,8 @@ nav li:nth-child(1) {
 #pagina-atualmente section:not(:first-child),
 #pagina-principal section:not(:first-child) {
     animation: descer;
+    animation-timeline: view();
+    animation-range: 0% 30%;
 }
 
 #pagina-principal .sessao-2 {
@@ -291,23 +297,6 @@ nav li:nth-child(1) {
     object-fit: cover;
 }
 
-
-/* #pagina-principal .sessao-4 {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-.sessao-6 .bloco {
-    flex: 0 0 20rem;
-    min-height: 20rem;
-    border: 1px solid red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
 @media screen and (max-width: 800px) {
 
     #pagina-principal .sessao-2,
@@ -358,6 +347,8 @@ em {
     color: transparent;
     background: linear-gradient(90deg, red, orange, yellow, green, blue, purple, red, orange, yellow, green, blue, purple);
     background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
     animation: babyshark 1s linear infinite;
 }
 
@@ -379,6 +370,8 @@ em {
 
 #pagina-sobre .sessao-1 .card:not(:first-child) {
     animation: descer;
+    animation-timeline: view();
+    animation-range: 0% 30%;
 }
 
 #pagina-sobre .sessao-1 .card:nth-child(odd) {
@@ -427,7 +420,8 @@ iframe {
 iframe:hover {
     transform: scale(1.05); /* Zoom suave ao passar o mouse sobre o vídeo */
 }
-section {
+
+main:not(#pagina-principal, #pagina-sobre) section {
     background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 1rem; 
     padding: 2rem;
@@ -490,16 +484,6 @@ h2 {
     }
 }
 
-/* Animação suave para links no menu */
-nav ul li a {
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #ff6347;
-    transform: scale(1.1);
-}
-
 
 /* Vídeo embutido */
 .video-container {
@@ -537,24 +521,6 @@ nav ul li a:hover {
 
 .stat p {
     font-size: 1.2em;
-}
-/* Ajuste de cores para maior contraste */
-body {
-    background-color: #fafafa;
-    color: #333;
-}
-
-h1, h2 {
-    color: #111;
-}
-
-a {
-    color: #0066cc;
-}
-
-a:hover {
-    color: #ff6347;
-    text-decoration: underline;
 }
 
 /* Melhorando o foco nos links */
