@@ -46,7 +46,7 @@ header, main {
 header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url("../img/smartphone.avif");
     background-size: cover;
-    background-position: 40% top;
+    background-position: 50% top;
     margin-bottom: 3rem;
     max-width: 1600px;
 }
@@ -164,26 +164,33 @@ nav li:nth-child(1) {
     margin-right: auto;
 }
 
-.burger {
+.burger, #burger-checkbox {
     display: none;
 }
 
 @media screen and (max-width: 968px) {
     .burger {
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: fixed;
         top: 1rem;
         left: 1rem;
-        height: 50px;
-        z-index: 10;
+        z-index: 200;
+
+        font-size: 2rem;
+        height: 3.5rem;
+        width: 3.5rem;
+        color: var(--cor-font-1);
+        background-color: var(--cor-body);
+        border: 1px solid var(--cor-font-1);
+        border-radius: 50%;
+        transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    .burger img {
-        height: 100%;
-        background-color: var(--cor-body);
-        border: 1px solid black;
-        border-radius: 50%;
-        padding: .5rem;
+    .burger:hover, .burger:focus {
+        background-color: var(--cor-highlight-2);
+        transform: scale(1.1);
     }
 
     nav ul {
@@ -200,11 +207,26 @@ nav li:nth-child(1) {
         
         background-color: var(--cor-highlight-1);
         flex-direction: column;
+        transition: transform .3s ease-out;
     }
 
+    #burger-checkbox:checked ~ ul,
     nav:is(:focus, :focus-within) ul {
         transform: translateX(0);
-        transition: transform .3s ease-out;
+    }
+
+    .burger .fa-solid.fa-bars {
+        display: block;
+    }
+    #burger-checkbox:checked ~ .burger .fa-solid.fa-bars {
+        display: none;
+    }
+
+    .burger .fa-solid.fa-xmark {
+        display: none;
+    }
+    #burger-checkbox:checked ~ .burger .fa-solid.fa-xmark {
+        display: block;
     }
 
     nav li a {
@@ -217,18 +239,16 @@ nav li:nth-child(1) {
     }
 
     nav li:nth-child(1){
-        margin-right: 0;
+        margin: 2rem 0 0;
     }
 }
 
 /* ---------- MAIN ---------- */
 
-#pagina-social section:not(:first-child),
-#pagina-atualmente section:not(:first-child),
-#pagina-principal section:not(:first-child) {
+main:not(#pagina-sobre) section:not(:first-child) {
     animation: descer;
     animation-timeline: view();
-    animation-range: 0% 30%;
+    animation-range: 0% 15%;
 }
 
 #pagina-principal .sessao-2 {
@@ -245,7 +265,7 @@ nav li:nth-child(1) {
     gap: 3rem;
 }
 
-.sessao-2 .container-imagem, .sessao-3 .container-imagem {
+#pagina-principal .container-imagem {
     height: 100%;
     display: flex;
     align-items: center;
@@ -256,7 +276,7 @@ nav li:nth-child(1) {
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 #pagina-principal .sessao-5 {
@@ -288,9 +308,9 @@ nav li:nth-child(1) {
 }
 
 #pagina-principal .sessao-2 img,
-#pagina-principal .sessao-3 img,#pagina-principal .sessao-4 img,
+#pagina-principal .sessao-3 img,
+#pagina-principal .sessao-4 img,
 #pagina-principal .sessao-5 img {
-    margin: 0 auto;
     height: 100%;
     width: 100%;
     border-radius: 2rem;
@@ -368,18 +388,18 @@ em {
     background-color: var(--cor-body);
 }
 
-#pagina-sobre .sessao-1 .card:not(:first-child) {
-    animation: descer;
-    animation-timeline: view();
-    animation-range: 0% 30%;
-}
-
-#pagina-sobre .sessao-1 .card:nth-child(odd) {
+#pagina-sobre .sessao-1 .card:nth-child(odd):not(:first-child) {
     margin-right: auto;
+    animation: fade-in-r ease-out;
+    animation-timeline: view();
+    animation-range: 0% 15%;
 }
 
 #pagina-sobre .sessao-1 .card:nth-child(even) {
     margin-left: auto;
+    animation: fade-in-l ease-out;
+    animation-timeline: view();
+    animation-range: 0% 15%;
 }
 
 
@@ -388,6 +408,28 @@ em {
 @keyframes descer {
     0% {
         transform: translateY(-6rem);
+        opacity: 0%;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+
+@keyframes fade-in-r {
+    0% {
+        transform: translateX(-10rem);
+        opacity: 0%;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+
+@keyframes fade-in-l {
+    0% {
+        transform: translateX(10rem);
         opacity: 0%;
     }
     100% {
