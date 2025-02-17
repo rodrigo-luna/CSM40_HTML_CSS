@@ -38,7 +38,6 @@ body {
 }
 
 header, main {
-    max-width: 1200px;
     margin-inline: auto;
     padding: 2rem 5vw 5rem 5vw;
 }
@@ -48,7 +47,6 @@ header {
     background-size: cover;
     background-position: 50% top;
     margin-bottom: 3rem;
-    max-width: 1600px;
 }
 
 h1 {
@@ -106,6 +104,7 @@ footer {
     color: var(--cor-font-2);
     background-color: var(--cor-highlight-1);
     padding-block: 0.25rem;
+    
 }
 
 footer a, footer a:visited {
