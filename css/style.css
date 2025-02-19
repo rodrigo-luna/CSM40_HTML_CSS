@@ -585,6 +585,10 @@ a:focus, button:focus {
     scroll-snap-type: x mandatory;
     white-space: nowrap;
     position: relative;
+    scrollbar-color: var(--cor-highlight-1) rgb(220, 220, 220);
+    scrollbar-width: thin;
+    margin-bottom: 5rem;
+    padding-bottom: .5rem;
 }
 /* Carrossel */
 .carousel {
@@ -615,10 +619,34 @@ a:focus, button:focus {
     white-space: normal;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 2rem;
+    background-color: white;
+    align-items: center;
+}
 
+#nome, #email {
+    width: min(30rem, 100%);
+    padding: .5rem;
+}
 
+#msg {
+    width: min(30rem, 100%);
+    height: 10rem;
+    padding: .5rem;
+}
 
-
+#enviar {
+    margin-block: 2rem;
+    width: min(30rem, 80%);
+    height: 2rem;
+    background-color: var(--cor-highlight-2);
+}
 
 
 
