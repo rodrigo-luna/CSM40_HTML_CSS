@@ -451,12 +451,20 @@ em {
 /* ---------- Social ---------- */
 #pagina-social iframe {
     display: block;
-    margin: 2rem auto; /* Centraliza o vídeo horizontalmente */
-    border-radius: 1rem; /* Bordas arredondadas */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao redor do vídeo */
-    max-width: 100%; /* Garante que o vídeo não ultrapasse o limite da tela */
-    height: auto; /* Mantém a proporção do vídeo */
-    transition: transform 0.3s ease; /* Adiciona animação para quando o usuário passar o mouse sobre o player */
+    margin: 2rem auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 80%; /* Define uma largura maior */
+    max-width: 900px; /* Evita que fique muito grande em telas largas */
+    height: 500px; /* Define uma altura maior */
+    transition: transform 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+    #pagina-social iframe {
+        width: 100%; /* Em telas menores, ocupa toda a largura */
+        height: 300px; /* Reduz a altura para manter proporção */
+    }
 }
 
 #pagina-social iframe:hover {
@@ -569,4 +577,81 @@ em {
 a:focus, button:focus {
     outline: 2px solid #ff6347;
 }
+
+/* Carrossel container */
+.carousel-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    position: relative;
+}
+
+/* Esconde a barra de rolagem */
+.carousel-container::-webkit-scrollbar {
+    display:contents;
+}
+
+/* Carrossel */
+.carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+/* Slides do carrossel */
+.carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 20px;
+    text-align: center;
+    background: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    border: 2px solid black;
+    word-wrap: break-word;
+    max-width: 100%;
+    margin: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: normal;
+}
+
+/* Estilos das setas */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+/* Setas posicionadas à esquerda e à direita */
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+/* Hover nas setas */
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+
 
