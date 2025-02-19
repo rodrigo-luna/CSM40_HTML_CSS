@@ -647,6 +647,8 @@ form {
     width: min(30rem, 80%);
     height: 2rem;
     background-color: var(--cor-highlight-2);
+    border: 1px solid black;
+    border-radius: .5rem;
 }
 
 
