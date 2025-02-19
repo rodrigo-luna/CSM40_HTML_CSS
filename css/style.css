@@ -591,6 +591,7 @@ a:focus, button:focus {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+    gap: 1rem;
 }
 
 /* Slides do carrossel */
